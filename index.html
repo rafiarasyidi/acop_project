@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyRSPO Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header -->
+  <header class="border-b">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <img src="assets/RSPO_Logo.png" alt="RSPO Logo" class="h-10">
+      <span class="font-bold text-sm">LOGIN</span>
+    </div>
+    <nav class="bg-orange-500 text-white text-sm font-semibold">
+      <div class="max-w-7xl mx-auto flex items-center space-x-6 px-6 py-2">
+        <a href="#" class="hover:underline">HOME</a>
+        <div class="relative group">
+          <button class="hover:underline">MEMBERSHIP</button>
+          <!-- Add dropdown later if needed -->
+        </div>
+      </div>
+    </nav>
+  </header>
+
+    <!-- Login Form -->
+    <main class="flex flex-col items-center justify-center min-h-[60vh] px-4">
+    <h1 class="text-3xl font-light italic mt-10">
+        My<span class="text-orange-500 font-semibold">RSPO</span>
+    </h1>
+    <form id="loginForm" class="bg-white w-full max-w-sm mt-8 space-y-4">
+        <input
+        type="text"
+        id="email"
+        placeholder="Email"
+        class="w-full border px-4 py-2 rounded shadow-sm focus:outline-orange-500"
+        >
+        <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        class="w-full border px-4 py-2 rounded shadow-sm focus:outline-orange-500"
+        >
+        <button
+        type="submit"
+        class="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
+        >
+        Log in
+        </button>
+        <div class="text-sm text-orange-600 mt-2">
+        <a href="#" class="block">Forgot your password?</a>
+        <a href="#" class="block">New MyRSPO user, first time login</a>
+        </div>
+    </form>
+    </main>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-sm mt-12">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid sm:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-semibold">RSPO Malaysia</h3>
+        <p>Unit 13A-1, Level 13A, Menara Etiqa<br> No. 3, Jalan Bangsar Utama 1,<br> 59000, Kuala Lumpur<br> Malaysia</p>
+      </div>
+      <div>
+        <h3 class="font-semibold">RSPO Indonesia</h3>
+        <p>Sona Topas Tower Lvl. 16,<br> Jl. Jendral Sudirman Kav. 26<br> Karet - Setiabudi, Jakarta Selatan 12920,<br> Indonesia</p>
+      </div>
+      <div>
+        <h3 class="font-semibold">Other RSPO Offices</h3>
+        <p>RSPO China, RSPO Europe, RSPO North America</p>
+        <a href="#" class="inline-block mt-2 bg-orange-500 text-white px-4 py-1 rounded text-xs">Complaints Portal</a>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 py-4 text-center text-gray-400 text-xs">
+      <p>Follow Us on 
+        <span class="inline-flex space-x-2">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+        </span>
+      </p>
+      <p class="mt-2">&copy; 2024 Roundtable on Sustainable Palm Oil. All Rights Reserved. <a href="#" class="text-orange-500">Privacy Policy</a></p>
+    </div>
+  </footer>
+  <script src="assets/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #f9fafb;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+th {
+  white-space: nowrap;
+}
+
+table, th, td {
+  font-size: 0.875rem;
+}

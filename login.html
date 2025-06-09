@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Member Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200">
+
+  <!-- Sticky Top Navigation Bar -->
+  <div class="sticky top-0 z-50 bg-gray-50 shadow-sm border-b">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+      <!-- Left: ACOP Title as link -->
+      <a href="#acop" id="acopLink" class="flex items-center space-x-2 overflow-hidden truncate">
+        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">A</div>
+        <span class="text-green-600 font-semibold text-lg sm:text-xl whitespace-nowrap">
+          Annual Communication of Progress
+        </span>
+        <span class="text-sm text-gray-500 whitespace-nowrap"></span>
+      </a>
+
+      <!-- Right: Nav Items -->
+      <div class="flex items-center space-x-6 text-base text-gray-700">
+        <a href="#resources" class="hover:text-black">Resources</a>
+        <a href="#" class="hover:text-black">Announcements</a>
+        <button onclick="document.getElementById('contactModal').classList.remove('hidden')" class="hover:text-black">Contact Us</button>
+
+        <!-- Language Selector -->
+        <div class="flex items-center space-x-1 cursor-pointer">
+          <img src="https://flagcdn.com/gb.svg" class="w-4 h-4" alt="UK Flag">
+          <span>English</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+        <!-- User Dropdown -->
+        <div class="relative" id="userDropdown">
+          <button onclick="toggleUserMenu()" class="flex items-center space-x-1 hover:text-black focus:outline-none">
+            <svg class="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm0 2c-3.33 0-6 1.33-6 4v1h12v-1c0-2.67-2.67-4-6-4z" />
+            </svg>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="userMenu" class="absolute right-0 mt-2 w-36 bg-white rounded shadow-lg text-sm hidden">
+            <button onclick="logout()" class="w-full text-left px-4 py-2 hover:bg-gray-100">Log out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Layout -->
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-md p-4 flex flex-col items-center space-y-4">
+      <div class="w-full h-32 bg-gray-200 flex items-center justify-center text-gray-500 text-lg font-semibold">
+        LOGO HERE
+      </div>
+
+      <div class="text-center">
+        <h2 class="text-xl font-bold">PT RSI Indonesia</h2>
+      </div>
+
+      <div class="w-full border-t pt-4 space-y-2 text-sm">
+        <div><span class="font-medium">Status:</span> <span class="text-green-600 font-semibold">Active</span></div>
+        <div><span class="font-medium">Membership No:</span><br>8-1234-30-000-00</div>
+        <div><span class="font-medium">Category:</span>Ordinary</div>
+        <div><span class="font-medium">Sector:</span><br>Non-Governmental Organization</div>
+        <div><span class="font-medium">Country/Territory:</span><br>Indonesia</div>
+        <div><span class="font-medium">Member since:</span><br>31 December 2030</div>
+        <div><span class="font-medium">Web:</span><br><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="text-blue-600 hover:underline" target="_blank">www.ptrsi.com.pl</a></div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 bg-gray-50 px-6 py-10">
+      <div class="max-w-6xl mx-auto text-sm">
+
+    <!-- View: ACOP Main Content -->
+    <div id="view-acop">
+      <!-- ACOP Description -->
+      <div id="acopDescription">
+        <h1 class="text-xl font-semibold text-gray-800 mb-4">Annual Communication of Progress (ACOP)</h1>
+        <p class="text-gray-700 mb-4">
+          The Annual Communication of Progress (ACOP) are reports submitted by RSPO Members to gauge their progress towards
+          100% RSPO Certified Sustainable Palm Oil. These reports are mandatory for Ordinary and Affiliate members, and are submitted each year.
+        </p>
+        <p class="text-gray-700 mb-4">
+          ACOP allows RSPO to not only assess a member’s individual progress publicly, but also to identify and respond to issues and trends that are emerging through data analysis.
+          The ACOP process also allows each and every stakeholder group to gain a better understanding of their distinctive role within the RSPO.
+        </p>
+        <p class="text-gray-700">
+          For any questions, please contact:
+          <a href="mailto:acop@rspo.org" class="text-orange-600 font-medium">acop@rspo.org</a>
+        </p>
+      </div>
+
+      <!-- Divider Line -->
+      <hr class="my-8 border-t border-gray-300" />
+
+      <!-- Action Boxes Section -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <button onclick="showView('view-submission')" class="bg-white shadow hover:shadow-md border border-gray-200 rounded-lg p-6 text-center hover:bg-orange-50 transition">
+          <span class="text-lg font-semibold text-gray-800">ACOP Submission</span>
+        </button>
+        <button onclick="showView('view-report')" class="bg-white shadow hover:shadow-md border border-gray-200 rounded-lg p-6 text-center hover:bg-orange-50 transition">
+          <span class="text-lg font-semibold text-gray-800">ACOP Report</span>
+        </button>
+        <button class="bg-white shadow hover:shadow-md border border-gray-200 rounded-lg p-6 text-center hover:bg-orange-50 transition">
+          <span class="text-lg font-semibold text-gray-800">Shared Responsibility</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Resource Guidelines Section -->
+        <div id="resourceGuidelines" class="hidden">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">ACOP Guidelines For Members</h2>
+          <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+            <table class="min-w-full text-sm text-left text-gray-700">
+              <thead class="bg-gray-100 text-orange-600 uppercase text-xs">
+                <tr>
+                  <th class="px-4 py-2">Title</th>
+                  <th class="px-4 py-2">Filetype</th>
+                  <th class="px-4 py-2">File(s)</th>
+                  <th class="px-4 py-2">Language</th>
+                  <th class="px-4 py-2">Modified</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t">
+                  <td class="px-4 py-2 flex items-center space-x-2 text-orange-600">
+                    <span>📄</span><a href="#" class="hover:underline">Annex 2</a>
+                  </td>
+                  <td class="px-4 py-2">xlsx</td>
+                  <td class="px-4 py-2">en</td>
+                  <td class="px-4 py-2">en</td>
+                  <td class="px-4 py-2">28 Feb 2025</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-2 flex items-center space-x-2 text-orange-600">
+                    <span>📄</span><a href="#" class="hover:underline">ACOP Guidelines for Members</a>
+                  </td>
+                  <td class="px-4 py-2">pdf</td>
+                  <td class="px-4 py-2">en</td>
+                  <td class="px-4 py-2">en</td>
+                  <td class="px-4 py-2">07 Feb 2024</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Back home button -->
+          <div class="mt-6 text-center">
+            <button
+              onclick="showView('view-acop')"
+              class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-full shadow">
+              Back to Main Menu
+            </button>
+          </div>
+        </div>
+
+        <!-- View: ACOP Submission -->
+        <div id="view-submission" class="hidden">
+          <h2 class="text-xl font-semibold text-gray-800 mb-2">ACOP Submission</h2>
+          <p class="text-gray-700 mb-4">
+            Please click the "Access ACOP" button below to begin with your ACOP report submission. The reporting platform will automatically open in a new browser tab.
+            If the new tab does not appear, please ensure that your browser’s pop-up blocker is disabled. We also recommend reviewing the
+            <a href="#" class="text-orange-600 underline">ACOP Guideline</a> before proceeding.
+          </p>
+          <p class="text-gray-700">
+          For any questions, please contact: <a href="mailto:acop@rspo.org" class="text-orange-600 font-medium">acop@rspo.org</a>
+          </p>
+          <div class="overflow-x-auto mt-6">
+            <table class="min-w-full text-sm text-left border border-gray-300 table-auto">
+              <thead class="bg-white font-semibold border-b">
+                <tr>
+                  <th class="px-6 py-3 w-1/4">ACOP Button</th>
+                  <th class="px-6 py-3">Account Name</th>
+                  <th class="px-6 py-3">Status</th>
+                  <th class="px-6 py-3">Completion Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t">
+                  <td class="px-6 py-3">
+                    <a href="#" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 transition text-sm whitespace-nowrap">Update ACOP 2024</a>
+                  </td>
+                  <td class="px-6 py-3">PT RSI Indonesia</td>
+                  <td class="px-6 py-3">Submitted</td>
+                  <td class="px-6 py-3">2025-06-02</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Back home button -->
+            <div class="mt-6 text-center">
+            <button
+              onclick="showView('view-acop')"
+              class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-full shadow">Back to Main Menu
+            </button>  
+          </div>
+          </div>
+        </div>
+      </div>
+
+<!-- View: ACOP Report -->
+<div id="view-report" class="hidden">
+  <h2 class="text-xl font-semibold text-gray-800 mb-2">ACOP Report</h2>
+  <p class="text-gray-700 mb-4">
+    This section displays your submitted ACOP reports along with a visual dashboard generated from your reported data. You can view the year, file name, and submission status for each ACOP report.
+  </p>
+  
+  <p class="text-sm text-gray-500 italic mb-4">
+    Note: The visual dashboard is for demonstration purposes only.
+  </p>
+
+  <!-- Tab Buttons -->
+  <div class="flex space-x-4 justify-center mb-6">
+    <button onclick="showACOPTab('table')" class="px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600">Report Table</button>
+    <button onclick="showACOPTab('dashboard')" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-full hover:bg-gray-400">Visual Dashboard</button>
+  </div>
+
+  <!-- Table View -->
+  <div id="acop-table-view" class="max-w-4xl mx-auto hidden">
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left border border-gray-300 table-auto">
+        <thead class="bg-white font-semibold border-b">
+          <tr>
+            <th class="px-6 py-3 w-1/4">ACOP Year</th>
+            <th class="px-6 py-3">File Name</th>
+            <th class="px-6 py-3">Submission Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t">
+            <td class="px-6 py-3">2024</td>
+            <td class="px-6 py-3">
+              <a href="#" class="text-orange-600 hover:underline">ACOP2024_Report_PT_RSI.pdf</a>
+            </td>
+            <td class="px-6 py-3 text-green-600 font-medium">On Time</td>
+          </tr>
+          <tr class="border-t">
+            <td class="px-6 py-3">2023</td>
+            <td class="px-6 py-3">
+              <a href="#" class="text-orange-600 hover:underline">ACOP2023_Report_PT_RSI.pdf</a>
+            </td>
+            <td class="px-6 py-3 text-red-600 font-medium">Late Submission</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Dashboard View -->
+  <div id="acop-dashboard-view" class="max-w-6xl mx-auto hidden">
+    <img src="assets/example_dashboard.png" alt="ACOP Dashboard" class="w-full rounded shadow" />
+  </div>
+
+  <!-- Back home button (not fixed now) -->
+    <div class="mt-6 text-center">
+      <button
+        onclick="showView('view-acop')"
+        class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-full shadow">
+        Back to Main Menu
+      </button>
+    </div>
+  </div>
+
+  <!-- Contact Us Modal -->
+  <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
+      <h2 class="text-lg font-semibold mb-4">Contact Us</h2>
+      <form class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium">Name</label>
+          <input type="text" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Your name">
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Email</label>
+          <input type="email" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Your email">
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Question</label>
+          <textarea class="w-full border border-gray-300 rounded px-3 py-2" rows="3" placeholder="Type your message..."></textarea>
+        </div>
+        <div class="flex justify-end space-x-2">
+          <button type="button" onclick="document.getElementById('contactModal').classList.add('hidden')" class="px-4 py-2 text-sm bg-gray-200 rounded hover:bg-gray-300">Cancel</button>
+          <button type="submit" class="px-4 py-2 text-sm bg-orange-500 text-white rounded hover:bg-orange-600">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JS Script -->
+  <script src="assets/scripts.js"></script>
+</body>
+</html>
